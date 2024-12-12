@@ -1,84 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get-Set-Go Carpooling</title>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Link to External CSS -->
+    <title>Get-Set-Go</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://api.backendless.com/sdk/js/latest/backendless.min.js"></script>
 </head>
-
 <body>
-    <!-- Login Screen -->
-    <div id="login-screen">
-        <h1>Get-Set-Go</h1>
-        <h2>By Dinesh</h2>
-        <form id="login-form">
-            <input type="text" id="name" placeholder="Enter your Name" required><br>
-            <input type="text" id="phone" placeholder="Enter your Phone Number" required><br>
-            <button type="submit">Login</button>
-        </form>
-    </div>
-
-    <!-- Home Screen -->
-    <div id="home-screen" style="display: none;">
-        <h1>Find your Ride</h1>
-        <div>
-            <input type="text" id="from" placeholder="From" list="locations">
-            <datalist id="locations"></datalist><br>
-            <input type="text" id="to" placeholder="To" list="locations"><br>
-            <input type="date" id="date"><br>
-            <button id="search-ride">Search</button>
+    <div id="app">
+        <!-- Login Screen -->
+        <div id="loginScreen" class="screen visible">
+            <h1 class="title">Get-Set-Go</h1>
+            <h3 class="subtitle">By Dinesh</h3>
+            <input type="text" id="userName" placeholder="Enter Your Name" required>
+            <input type="tel" id="userPhone" placeholder="Enter 10-digit Phone Number" maxlength="10" required>
+            <button id="loginButton" class="gradient-button">Login</button>
         </div>
-        <div id="ride-results"></div>
 
-        <!-- Navigation Bar -->
-        <div id="navbar">
-            <ul>
-                <li><button id="home"><i class="fa fa-home"></i> Home</button></li>
-                <li><button id="post-ride"><i class="fa fa-car"></i> Post a Ride</button></li>
-                <li><button id="your-rides"><i class="fa fa-list"></i> Your Rides</button></li>
-                <li><button id="contact-dev"><i class="fa fa-phone"></i> Contact Developer</button></li>
-            </ul>
+        <!-- Home Screen -->
+        <div id="homeScreen" class="screen hidden">
+            <h1 class="title">Find Your Ride</h1>
+            <input type="text" id="fromLocation" placeholder="From" autocomplete="off">
+            <input type="text" id="toLocation" placeholder="To" autocomplete="off">
+            <input type="date" id="rideDate">
+            <button id="searchButton" class="gradient-button">Search</button>
+            <div id="rideResults" class="results-container"></div>
+        </div>
+
+        <!-- Post a Ride Screen -->
+        <div id="postRideScreen" class="screen hidden">
+            <h1 class="title">Post a Ride</h1>
+            <input type="text" id="postFrom" placeholder="From" autocomplete="off">
+            <input type="text" id="postTo" placeholder="To" autocomplete="off">
+            <input type="date" id="postDate">
+            <input type="time" id="postTime">
+            <input type="number" id="postSeats" placeholder="Seats Available">
+            <input type="text" id="postVehicle" placeholder="Vehicle Model">
+            <input type="number" id="postPrice" placeholder="Price per Seat">
+            <button id="postRideButton" class="gradient-button">Post This Ride</button>
         </div>
     </div>
 
-    <!-- Post a Ride Screen -->
-    <div id="post-ride-screen" style="display: none;">
-        <h1>Post a Ride</h1>
-        <form>
-            <input type="text" id="from-post" placeholder="From" list="locations"><br>
-            <input type="text" id="to-post" placeholder="To" list="locations"><br>
-            <input type="date" id="date-post"><br>
-            <input type="time" id="time-post"><br>
-            <input type="number" id="seats-post" placeholder="Seats Available"><br>
-            <input type="number" id="price-post" placeholder="Price per seat"><br>
-            <input type="text" id="vehicle-model" placeholder="Vehicle Model"><br>
-            <button type="submit" id="post-ride-btn">Post Ride</button>
-        </form>
-    </div>
-
-    <!-- Your Rides Screen -->
-    <div id="your-rides-screen" style="display: none;">
-        <h1>Your Rides</h1>
-        <!-- User's posted rides will be shown here -->
-    </div>
-
-    <!-- Contact Developer Screen -->
-    <div id="contact-screen" style="display: none;">
-        <h2>Contact Developer</h2>
-        <p>Get-Set-Go Carpooling app made by Dinesh Jangir</p>
-        <p>Contact Info:</p>
-        <p>Telegram: <a href="https://t.me/dj3680">@dj3680</a></p>
-        <p>Feel free to reach out for any queries or support!</p>
-    </div>
-
-    <!-- Link to External JS -->
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
