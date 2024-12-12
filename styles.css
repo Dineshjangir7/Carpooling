@@ -1,0 +1,130 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Login Screen */
+#login-screen {
+    text-align: center;
+    padding: 50px;
+}
+
+#login-screen h1 {
+    font-size: 50px;
+    color: #333;
+}
+
+#login-screen h2 {
+    font-size: 20px;
+    color: #777;
+}
+
+#login-form input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+}
+
+#login-form button {
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#login-form button:hover {
+    background-color: #feb47b;
+}
+
+/* Home Screen */
+#home-screen {
+    padding: 30px;
+    text-align: center;
+}
+
+#home-screen input, #home-screen button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+}
+
+#search-ride {
+    background-color: #ff7e5f;
+    color: white;
+}
+
+#ride-results {
+    margin-top: 20px;
+}
+
+.ride {
+    background: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Bar */
+#navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#navbar button {
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#navbar button:hover {
+    color: #ff7e5f;
+}
+
+/* Post Ride Screen */
+#post-ride-screen {
+    padding: 30px;
+    text-align: center;
+}
+
+/* Contact Developer Screen */
+#contact-screen {
+    padding: 30px;
+    text-align: center;
+}
+
+#contact-screen a {
+    color: #ff7e5f;
+    text-decoration: none;
+}
+
+/* Gradient Buttons */
+button {
+    background: linear-gradient(145deg, #ff7e5f, #feb47b);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+button:hover {
+    background: linear-gradient(145deg, #feb47b, #ff7e5f);
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.3), -8px -8px 16px rgba(255, 255, 255, 0.3);
+}
