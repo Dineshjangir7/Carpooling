@@ -1,5 +1,5 @@
 // Initialize Backendless
-Backendless.initApp("589C4FDD-0CFD-49E2-A21F-EC8A2184825E", "844281E6-0BA7-4BBD-8034-6D95F190A84F");
+Backendless.initApp("589C4FDD-0CFD-49E2-A21F-EC8A2184825E", "355373BB-7EEC-4C09-9867-6DFCEE812086");
 
 const loginForm = document.getElementById("login-form");
 const homeScreen = document.getElementById("home-screen");
