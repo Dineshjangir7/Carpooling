@@ -1,109 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Set Go</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get-Set-Go</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="app">
+    <!-- Login Screen -->
+    <section id="login-screen">
+      <h1>Get-Set-Go</h1>
+      <p>By Dinesh</p>
+      <form id="login-form">
+        <input type="text" id="name" placeholder="Enter your Name" required>
+        <input type="text" id="phone" placeholder="Enter your Phone Number" required>
+        <button type="submit">Login</button>
+      </form>
+    </section>
 
-<!-- Login Screen -->
-<div id="login-page" class="page visible">
-    <h1>Get Set Go!</h1>
-    <h2>by Dinesh</h2>
-    <input type="tel" id="phone" placeholder="Enter your 10-digit phone number" maxlength="10">
-    <button class="rounded-btn" onclick="login()">Login</button>
-</div>
+    <!-- Home Screen -->
+    <section id="home-screen" style="display: none;">
+      <h1>Find your ride</h1>
+      <div class="search-section">
+        <input type="text" id="from" placeholder="From" autocomplete="off">
+        <input type="text" id="to" placeholder="To" autocomplete="off">
+        <input type="date" id="date">
+        <button id="search-ride">Search</button>
+      </div>
+      <div id="ride-results"></div>
+    </section>
 
-<!-- Home Page -->
-<div id="home-page" class="page">
-    <h2>Find a Ride</h2>
-    <div class="input-container">
-        <input type="text" id="from" placeholder="From" onkeyup="showSuggestions('from')" class="rounded-input">
-        <div id="from-suggestions" class="suggestions"></div>
-        
-        <input type="text" id="to" placeholder="To" onkeyup="showSuggestions('to')" class="rounded-input">
-        <div id="to-suggestions" class="suggestions"></div>
+    <!-- Bottom Navigation -->
+    <nav id="bottom-nav">
+      <button id="home">Home</button>
+      <button id="post-ride">Post a Ride</button>
+      <button id="your-rides">Your Rides</button>
+      <button id="contact-dev">Contact Developer</button>
+    </nav>
+  </div>
 
-        <input type="date" id="date" class="rounded-input">
-        <button class="rounded-btn" onclick="searchRides()">Search</button>
-    </div>
-    <div id="ride-results"></div>
-</div>
-
-<!-- Post Ride Page -->
-<div id="post-ride-page" class="page">
-    <h2>Post a Ride</h2>
-    <div class="input-container">
-        <input type="text" id="post-from" placeholder="From" onkeyup="showSuggestions('post-from')" class="rounded-input">
-        <div id="post-from-suggestions" class="suggestions"></div>
-        
-        <input type="text" id="post-to" placeholder="To" onkeyup="showSuggestions('post-to')" class="rounded-input">
-        <div id="post-to-suggestions" class="suggestions"></div>
-        
-        <input type="number" id="seats" placeholder="Seats Available" class="rounded-input">
-        <input type="number" id="price" placeholder="Price per Seat" class="rounded-input">
-        <input type="text" id="vehicle" placeholder="Vehicle Model" onkeyup="showVehicleSuggestions()" class="rounded-input">
-        <div id="vehicle-suggestions" class="suggestions"></div>
-        <input type="tel" id="contact" placeholder="Contact Number" class="rounded-input">
-        <input type="date" id="ride-date" class="rounded-input">
-        
-        <!-- AM/PM time selection -->
-        <input type="number" id="depart-hour" placeholder="Hour" min="1" max="12" class="rounded-input">
-        <input type="number" id="depart-minute" placeholder="Minute" min="0" max="59" class="rounded-input">
-        <select id="depart-time" class="rounded-input">
-            <option value="AM">AM</option>
-            <option value="PM">PM</option>
-        </select>
-        
-        <input type="text" id="name" placeholder="Driver's Name (Required)" class="rounded-input">
-        
-        <button class="rounded-btn" onclick="postRide()">Post Ride</button>
-    </div>
-</div>
-
-<!-- Profile Page -->
-<div id="profile-page" class="page">
-    <h2>Your Profile</h2>
-    <p id="profile-name">Name: <span id="profile-name-text">Not Set</span></p>
-    <p id="profile-phone">Phone Number: <span id="profile-phone-text">Not Set</span></p>
-    <button class="rounded-btn" onclick="showPage('home-page')">Go to Home</button>
-    <button class="rounded-btn" onclick="showPage('set-name-page')">Set Name</button> <!-- Button to set name -->
-</div>
-
-<!-- Set Name Page -->
-<div id="set-name-page" class="page">
-    <h2>Set Your Name</h2>
-    <input type="text" id="set-name-input" placeholder="Enter your name">
-    <button class="rounded-btn" onclick="saveProfile()">Save</button>
-</div>
-
-<!-- Contact Developer Page -->
-<div id="contact-developer-page" class="page">
-    <h2>Contact Developer</h2>
-    <p>Name: Dinesh Jangir</p>
-    <p>Telegram: @dj3680</p>
-    <div class="warning">
-        <p>⚠️ Please travel at your own risk, I’ll not be responsible for any accidents or scams. ⚠️</p>
-    </div>
-    <button class="rounded-btn" onclick="showPage('home-page')">Go to Home</button>
-</div>
-
-<!-- No Rides Popup -->
-<div id="no-rides-popup">No rides available on this date for this route</div>
-
-<!-- Navigation Bar -->
-<div id="nav-bar" class="nav-bar visible">
-    <button class="nav-btn" onclick="showPage('home-page')"><i class="fas fa-home"></i> Home</button>
-    <button class="nav-btn" onclick="showPage('post-ride-page')"><i class="fas fa-car"></i> Post Ride</button>
-    <button class="nav-btn" onclick="showPage('profile-page')"><i class="fas fa-user"></i> Profile</button>
-</div>
-
-<!-- Floating Contact Developer Button -->
-<button id="contact-developer-btn" onclick="showPage('contact-developer-page')">📱</button>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
