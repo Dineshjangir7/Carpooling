@@ -1,49 +1,37 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom, #ff7e5f, #feb47b);
-  color: white;
-  text-align: center;
-}
-
-#app {
-  padding: 20px;
-}
-
-input, button {
-  width: 80%;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 25px;
-  border: none;
-}
-
+/* 3D Gradient Button Styles */
 button {
-  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  background: linear-gradient(145deg, #ff7e5f, #feb47b);
+  border: none;
   color: white;
-  font-weight: bold;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.3);
   cursor: pointer;
 }
 
 button:hover {
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background: linear-gradient(145deg, #feb47b, #ff7e5f);
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.3), -8px -8px 16px rgba(255, 255, 255, 0.3);
 }
 
-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+/* Navigation Bar */
+#navbar {
   display: flex;
   justify-content: space-around;
-  background: linear-gradient(to right, #ff416c, #ff4b2b);
-  padding: 10px 0;
+  background-color: #333;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-nav button {
-  background: none;
+#navbar button {
+  background: transparent;
   color: white;
-  font-size: 16px;
+  font-size: 20px;
   border: none;
   cursor: pointer;
+}
+
+#navbar button:hover {
+  color: #ff7e5f;
 }
