@@ -6,6 +6,7 @@
   <title>Get-Set-Go</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://api.backendless.com/sdk/js/latest/backendless.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <div id="app">
@@ -31,16 +32,34 @@
       </div>
       <div id="ride-results"></div>
     </section>
-
-    <!-- Bottom Navigation -->
-    <nav id="bottom-nav">
-      <button id="home">Home</button>
-      <button id="post-ride">Post a Ride</button>
-      <button id="your-rides">Your Rides</button>
-      <button id="contact-dev">Contact Developer</button>
-    </nav>
   </div>
 
+  <!-- Contact Developer Section -->
+<div id="contact-screen" style="display: none;">
+  <h2>Contact Developer</h2>
+  <p>Get-Set-Go Carpooling app made by Dinesh Jangir</p>
+  <p>Contact Info:</p>
+  <p>Telegram: <a href="https://t.me/dj3680">@dj3680</a></p>
+  <p>Feel free to reach out for any queries or support!</p>
+</div>
+  
+   <!-- Navigation Bar -->
+<div id="navbar">
+  <ul>
+    <li><button id="home"><i class="fa fa-home"></i> Home</button></li>
+    <li><button id="post-ride"><i class="fa fa-car"></i> Post a Ride</button></li>
+    <li><button id="your-rides"><i class="fa fa-list"></i> Your Rides</button></li>
+    <li><button id="contact-dev"><i class="fa fa-phone"></i> Contact Developer</button></li>
+  </ul>
+</div>
+  
+<input type="text" id="from" placeholder="Enter From Location" list="locations">
+<datalist id="locations">
+  <!-- Suggested locations will be added dynamically here -->
+</datalist>
+
+<input type="text" id="to" placeholder="Enter To Location" list="locations">
+  
   <script src="script.js"></script>
 </body>
 </html>
